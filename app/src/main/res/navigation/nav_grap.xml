@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_grap"
+    app:startDestination="@id/registryFragment">
+
+    <fragment
+        android:id="@+id/registryFragment"
+        android:name="com.example.citizensdata.RegistryFragment"
+        android:label="fragment_registry"
+        tools:layout="@layout/fragment_registry" >
+        <action
+            android:id="@+id/action_registryFragment_to_loginFragment"
+            app:destination="@id/loginFragment" />
+        <action
+            android:id="@+id/action_registryFragment_to_updateFragment"
+            app:destination="@id/updateFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/updateFragment"
+        android:name="com.example.citizensdata.UpdateFragment"
+        android:label="UpdateFragment" >
+        <action
+            android:id="@+id/action_updateFragment_to_registryFragment"
+            app:destination="@id/registryFragment" />
+        <argument
+            android:name="currentUser"
+            app:argType="com.example.citizensdata.db.appEntity" />
+    </fragment>
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="com.example.citizensdata.LoginFragment"
+        android:label="fragment_update"
+        tools:layout="@layout/fragment_update" >
+        <action
+            android:id="@+id/action_loginFragment_to_registryFragment"
+            app:destination="@id/registryFragment" />
+    </fragment>
+</navigation>
